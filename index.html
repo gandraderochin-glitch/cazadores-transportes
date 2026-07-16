@@ -75,12 +75,67 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="bandera-asta"></div>
-        <div class="bandera-tela">
-          <img src="assets/logo-emblem-claro.svg" alt="">
-          <span class="bandera-wordmark">CAZADORES</span>
+        <div class="carretera">
+          <div class="carretera-linea"></div>
         </div>
-        <div class="hero-flota"></div>
+
+        <div class="trailer-camion" id="camionHero">
+          <svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- sombra -->
+            <ellipse cx="245" cy="205" rx="205" ry="14" fill="rgba(31,40,24,0.18)"/>
+
+            <!-- caja / trailer 53' -->
+            <rect x="150" y="46" width="300" height="112" rx="6" fill="var(--crema)" stroke="var(--verde-oscuro)" stroke-width="3"/>
+            <rect x="150" y="46" width="300" height="14" fill="var(--verde-oscuro)"/>
+            <text x="300" y="112" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="34" letter-spacing="2" fill="var(--verde-oscuro)">CAZADORES</text>
+            <line x1="150" y1="158" x2="450" y2="158" stroke="var(--verde-oscuro)" stroke-width="3"/>
+
+            <!-- chasis -->
+            <rect x="40" y="150" width="410" height="10" fill="var(--asfalto)"/>
+
+            <!-- cabina -->
+            <path d="M20 158 L20 96 C20 88 26 82 34 82 L96 82 C104 82 110 86 114 94 L134 130 L150 130 L150 158 Z" fill="var(--verde-oscuro)"/>
+            <path d="M40 96 C40 91 43 88 48 88 L82 88 C87 88 91 91 94 96 L104 118 L40 118 Z" fill="#CFE0D4" opacity="0.9"/>
+            <rect x="20" y="130" width="20" height="10" fill="var(--olivo-claro)"/>
+            <circle cx="146" cy="112" r="5" fill="#F4D35E"/>
+
+            <!-- escape -->
+            <rect x="10" y="70" width="7" height="60" rx="3" fill="var(--asfalto-claro)"/>
+
+            <!-- ruedas -->
+            <g class="rueda" style="transform-origin:78px 178px">
+              <circle cx="78" cy="178" r="26" fill="var(--asfalto)"/>
+              <circle cx="78" cy="178" r="11" fill="var(--crema)"/>
+              <line x1="78" y1="158" x2="78" y2="198" stroke="var(--asfalto)" stroke-width="4"/>
+              <line x1="58" y1="178" x2="98" y2="178" stroke="var(--asfalto)" stroke-width="4"/>
+            </g>
+            <g class="rueda" style="transform-origin:210px 178px">
+              <circle cx="210" cy="178" r="24" fill="var(--asfalto)"/>
+              <circle cx="210" cy="178" r="10" fill="var(--crema)"/>
+              <line x1="210" y1="159" x2="210" y2="197" stroke="var(--asfalto)" stroke-width="4"/>
+              <line x1="191" y1="178" x2="229" y2="178" stroke="var(--asfalto)" stroke-width="4"/>
+            </g>
+            <g class="rueda" style="transform-origin:260px 178px">
+              <circle cx="260" cy="178" r="24" fill="var(--asfalto)"/>
+              <circle cx="260" cy="178" r="10" fill="var(--crema)"/>
+              <line x1="260" y1="159" x2="260" y2="197" stroke="var(--asfalto)" stroke-width="4"/>
+              <line x1="241" y1="178" x2="279" y2="178" stroke="var(--asfalto)" stroke-width="4"/>
+            </g>
+            <g class="rueda" style="transform-origin:400px 178px">
+              <circle cx="400" cy="178" r="24" fill="var(--asfalto)"/>
+              <circle cx="400" cy="178" r="10" fill="var(--crema)"/>
+              <line x1="400" y1="159" x2="400" y2="197" stroke="var(--asfalto)" stroke-width="4"/>
+              <line x1="381" y1="178" x2="419" y2="178" stroke="var(--asfalto)" stroke-width="4"/>
+            </g>
+            <g class="rueda" style="transform-origin:432px 178px">
+              <circle cx="432" cy="178" r="24" fill="var(--asfalto)"/>
+              <circle cx="432" cy="178" r="10" fill="var(--crema)"/>
+              <line x1="432" y1="159" x2="432" y2="197" stroke="var(--asfalto)" stroke-width="4"/>
+              <line x1="413" y1="178" x2="451" y2="178" stroke="var(--asfalto)" stroke-width="4"/>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
 
@@ -89,6 +144,26 @@
       <span class="linea"></span>
     </div>
   </section>
+
+  <!-- ============================= FRANJA SECTORES ============================= -->
+  <div class="franja-clientes">
+    <div class="marquee">
+      <span>Manufactura</span>
+      <span>Retail</span>
+      <span>Automotriz</span>
+      <span>Alimentos y Bebidas</span>
+      <span>Metalmecánica</span>
+      <span>Comercio Electrónico</span>
+      <span>Construcción</span>
+      <span>Manufactura</span>
+      <span>Retail</span>
+      <span>Automotriz</span>
+      <span>Alimentos y Bebidas</span>
+      <span>Metalmecánica</span>
+      <span>Comercio Electrónico</span>
+      <span>Construcción</span>
+    </div>
+  </div>
 
   <!-- ============================= SERVICIOS ============================= -->
   <section class="seccion crema" id="servicios">
@@ -153,6 +228,30 @@
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= NÚMEROS ============================= -->
+  <section class="seccion oscura" style="padding: 70px 0;">
+    <div class="contenedor">
+      <div class="grid-numeros revelar">
+        <div class="numero-item">
+          <span class="num" data-objetivo="53" data-sufijo="'">0</span>
+          <span class="lbl">Caja seca por unidad</span>
+        </div>
+        <div class="numero-item">
+          <span class="num" data-objetivo="4" data-sufijo="">0</span>
+          <span class="lbl">Regiones de cobertura nacional</span>
+        </div>
+        <div class="numero-item">
+          <span class="num" data-objetivo="24" data-sufijo="/7">0</span>
+          <span class="lbl">Monitoreo GPS en tiempo real</span>
+        </div>
+        <div class="numero-item">
+          <span class="num" data-objetivo="100" data-sufijo="%">0</span>
+          <span class="lbl">Unidades con rastreo satelital</span>
+        </div>
       </div>
     </div>
   </section>
