@@ -4,17 +4,17 @@
    ========================================================================== */
 
 :root {
-  --verde-oscuro: #33422A;
-  --verde-oscuro-2: #2A3622;
-  --crema: #EDEBDE;
-  --crema-2: #FBFAF6;
+  --verde-oscuro: #1F2B17;
+  --verde-oscuro-2: #141C0E;
+  --crema: #FFFFFF;
+  --crema-2: #F5F5F4;
   --olivo: #5C7A3F;
-  --olivo-claro: #9CA37E;
-  --bronce: #5B4A30;
-  --texto: #1F2818;
-  --texto-suave: #5C6354;
+  --olivo-claro: #C7CBB8;
+  --negro: #0D0D0C;
+  --texto: #111411;
+  --texto-suave: #55584F;
   --blanco: #FFFFFF;
-  --asfalto: #2B2E2C;
+  --asfalto: #1A1C1B;
   --asfalto-claro: #4A4E4A;
 
   --fuente-display: 'Bebas Neue', sans-serif;
@@ -107,7 +107,7 @@ h1, h2, h3, .display {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(232, 230, 217, 0.0);
+  background: rgba(255, 255, 255, 0.0);
   backdrop-filter: blur(0px);
   transition: background var(--transicion), backdrop-filter var(--transicion), box-shadow var(--transicion);
 }
@@ -221,7 +221,7 @@ h1, h2, h3, .display {
   display: flex;
   align-items: center;
   padding-top: 116px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8F7F1 55%, #F3F1E7 100%);
+  background: #FFFFFF;
   overflow: hidden;
 }
 
@@ -282,143 +282,39 @@ h1, h2, h3, .display {
   justify-content: center;
 }
 
-/* Bandera ondulante hecha en CSS */
-.bandera-asta {
-  position: absolute;
-  left: 18%;
-  top: 0;
-  width: 8px;
-  height: 92%;
-  background: linear-gradient(90deg, #b9b9b9, #f1f1f1, #b9b9b9);
-  border-radius: 4px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-.bandera-asta::before {
-  content: '';
-  position: absolute;
-  top: -16px; left: 50%;
-  transform: translateX(-50%);
-  width: 22px; height: 22px;
-  background: radial-gradient(circle at 35% 30%, #fff, #b9b9b9 70%);
-  border-radius: 50%;
-}
-
-.bandera-tela {
-  position: absolute;
-  left: calc(18% + 6px);
-  top: 8%;
-  width: 78%;
-  max-width: 420px;
-  aspect-ratio: 3 / 2;
-  background: var(--verde-oscuro);
-  clip-path: polygon(0% 4%, 100% 0%, 98% 50%, 100% 100%, 0% 96%, 6% 50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 6px;
-  box-shadow: 14px 18px 36px -10px rgba(31,40,24,0.45);
-  animation: ondear 6s ease-in-out infinite;
-  transform-origin: left center;
-}
-.bandera-tela img { width: 46%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25)); }
-.bandera-tela .bandera-wordmark {
-  font-family: var(--fuente-display);
-  color: var(--crema);
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-}
-
-@keyframes ondear {
-  0%, 100% { transform: perspective(800px) rotateY(0deg) skewY(0deg); }
-  50% { transform: perspective(800px) rotateY(-4deg) skewY(1deg); }
-}
-
-.hero-flota {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 30%;
-  background: var(--verde-oscuro-2);
-  clip-path: polygon(0 35%, 100% 0%, 100% 100%, 0% 100%);
-  opacity: 0.92;
-}
-
-/* ============================= SECCIÓN "EN RUTA" (tráiler avanzando con el scroll) ============================= */
-
-.seccion-ruta {
-  padding: 76px 0;
-  background: var(--crema-2);
+/* Foto real del hero (RXO-style: fotografía real, no ilustración) */
+.foto-hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
   overflow: hidden;
+  background: linear-gradient(160deg, #1A1C1B 0%, #2A2E29 55%, #3A3F38 100%);
 }
-.ruta-grid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 40px;
-  align-items: center;
+.foto-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.ruta-copy h2 { font-size: clamp(2.3rem, 4.2vw, 3.2rem); margin-top: 14px; }
-.ruta-copy p { color: var(--texto-suave); font-size: 1.12rem; margin-top: 16px; max-width: 420px; }
-.ruta-visual { height: 340px; }
-
-@media (max-width: 980px) {
-  .ruta-grid { grid-template-columns: 1fr; }
-  .ruta-visual { height: 300px; order: -1; }
-  .ruta-copy { text-align: center; }
-  .ruta-copy p { margin-inline: auto; }
-}
-
-/* Carretera en perspectiva + tráiler avanzando (se conduce con el scroll) */
-.carretera {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 84%;
-  max-width: 520px;
-  height: 58%;
-  transform: translateX(-50%);
-  background: var(--asfalto);
-  clip-path: polygon(41% 0%, 59% 0%, 100% 100%, 0% 100%);
-  box-shadow: inset 0 40px 60px -30px rgba(0,0,0,0.5);
-}
-.carretera::before,
-.carretera::after {
+.foto-hero::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  width: 3px;
-  height: 100%;
-  background: rgba(232,230,217,0.55);
+  inset: 0;
+  background: linear-gradient(0deg, rgba(13,13,12,0.35) 0%, rgba(13,13,12,0) 40%);
+  pointer-events: none;
 }
-.carretera::before { left: 12%; transform: skewX(-6deg); }
-.carretera::after { right: 12%; transform: skewX(6deg); }
-
-.carretera-linea {
+.foto-hero .foto-tag {
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 10px;
-  height: 100%;
-  transform: translateX(-50%);
-  background-image: repeating-linear-gradient(to bottom, var(--crema) 0 26px, transparent 26px 52px);
-  background-position-y: 0px;
-}
-
-.trailer-camion {
-  position: absolute;
-  left: 50%;
-  bottom: 4%;
-  width: 94%;
-  max-width: 560px;
-  transform: translateX(-50%);
-  animation: suspension 2.8s ease-in-out infinite;
-  filter: drop-shadow(10px 16px 20px rgba(31,40,24,0.3));
-}
-.trailer-camion svg { width: 100%; height: auto; overflow: visible; }
-.rueda { transform-box: fill-box; will-change: transform; }
-
-@keyframes suspension {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-4px); }
+  left: 20px;
+  bottom: 18px;
+  color: #fff;
+  font-family: var(--fuente-cuerpo);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.9;
 }
 
 .hero-scroll {
@@ -491,7 +387,7 @@ h1, h2, h3, .display {
 .seccion.crema { background: var(--crema); }
 .seccion.oscura { background: var(--verde-oscuro); color: var(--crema); }
 .seccion.oscura h2, .seccion.oscura .eyebrow { color: var(--crema); }
-.seccion.oscura .seccion-cabecera p { color: rgba(232,230,217,0.75); }
+.seccion.oscura .seccion-cabecera p { color: rgba(255,255,255,0.75); }
 
 /* ============================= SERVICIOS ============================= */
 
@@ -503,9 +399,10 @@ h1, h2, h3, .display {
 
 .tarjeta-servicio {
   background: var(--blanco);
+  border: 1px solid #E7E7E5;
   border-radius: var(--radio);
   overflow: hidden;
-  box-shadow: 0 10px 30px -14px rgba(31,40,24,0.18);
+  box-shadow: 0 10px 30px -18px rgba(0,0,0,0.12);
   transition: transform var(--transicion), box-shadow var(--transicion);
   display: flex;
   flex-direction: column;
@@ -513,6 +410,20 @@ h1, h2, h3, .display {
 .tarjeta-servicio:hover {
   transform: translateY(-10px);
   box-shadow: var(--sombra);
+}
+.foto-tarjeta {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(150deg, #1A1C1B 0%, #2E332B 100%);
+  position: relative;
+  overflow: hidden;
+}
+.foto-tarjeta img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.foto-tarjeta.sin-foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 14px);
 }
 .tarjeta-servicio .cabecera-tarjeta {
   background: var(--verde-oscuro);
@@ -523,7 +434,7 @@ h1, h2, h3, .display {
   letter-spacing: 0.03em;
 }
 .tarjeta-servicio .cuerpo-tarjeta {
-  background: var(--crema);
+  background: var(--blanco);
   padding: 26px 22px 28px;
   flex: 1;
   display: flex;
@@ -540,7 +451,8 @@ h1, h2, h3, .display {
 .num-tarjeta {
   font-family: var(--fuente-display);
   font-size: 2.1rem;
-  color: var(--olivo-claro);
+  color: var(--olivo);
+  opacity: 0.5;
 }
 .icono-tarjeta {
   width: 46px; height: 46px;
@@ -623,7 +535,7 @@ h1, h2, h3, .display {
 .numero-item .lbl {
   font-size: 0.85rem;
   letter-spacing: 0.04em;
-  color: rgba(232,230,217,0.7);
+  color: rgba(255,255,255,0.7);
   text-transform: uppercase;
   margin-top: 6px;
 }
@@ -678,7 +590,7 @@ h1, h2, h3, .display {
   gap: 28px;
 }
 .info-contacto-bloque h3 { color: var(--crema); font-size: 1.6rem; margin-bottom: 18px; }
-.info-contacto-bloque p { color: rgba(232,230,217,0.78); margin-bottom: 28px; max-width: 420px; }
+.info-contacto-bloque p { color: rgba(255,255,255,0.78); margin-bottom: 28px; max-width: 420px; }
 
 .dato-contacto {
   display: flex;
@@ -689,7 +601,7 @@ h1, h2, h3, .display {
 .dato-contacto .icono {
   width: 46px; height: 46px;
   border-radius: 50%;
-  background: rgba(232,230,217,0.12);
+  background: rgba(255,255,255,0.12);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -698,7 +610,7 @@ h1, h2, h3, .display {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(232,230,217,0.55);
+  color: rgba(255,255,255,0.55);
 }
 .dato-contacto .valor { color: var(--crema); font-weight: 600; font-size: 1.05rem; }
 
@@ -706,7 +618,7 @@ h1, h2, h3, .display {
 .redes a {
   width: 42px; height: 42px;
   border-radius: 50%;
-  background: rgba(232,230,217,0.12);
+  background: rgba(255,255,255,0.12);
   display: flex; align-items: center; justify-content: center;
   transition: background var(--transicion), transform var(--transicion);
 }
@@ -716,21 +628,24 @@ h1, h2, h3, .display {
 /* ============================= CTA FINAL ============================= */
 
 .cta-final {
-  background: var(--crema);
+  background: var(--verde-oscuro);
+  color: var(--crema);
   padding: 100px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
-.cta-final h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 760px; margin: 0 auto; }
-.cta-final .linea-acento { margin: 22px auto 34px; }
-.cta-final .boton { font-size: 1.05rem; padding: 18px 42px; }
+.cta-final h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 760px; margin: 0 auto; color: var(--crema); }
+.cta-final .eyebrow { color: var(--olivo-claro); }
+.cta-final .linea-acento { margin: 22px auto 34px; background: var(--olivo-claro); }
+.cta-final .boton { font-size: 1.05rem; padding: 18px 42px; background: var(--crema); color: var(--verde-oscuro); }
+.cta-final .boton:hover { background: var(--olivo-claro); }
 
 /* ============================= FOOTER ============================= */
 
 footer {
   background: var(--verde-oscuro-2);
-  color: rgba(232,230,217,0.7);
+  color: rgba(255,255,255,0.7);
   padding: 70px 0 26px;
 }
 .grid-footer {
@@ -738,7 +653,7 @@ footer {
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 40px;
   padding-bottom: 50px;
-  border-bottom: 1px solid rgba(232,230,217,0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 .footer-marca { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
 .footer-marca img { height: 48px; }
