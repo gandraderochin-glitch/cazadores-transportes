@@ -4,6 +4,26 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---- Carga de fotos con detección automática de extensión ----
+  // Así, si el archivo se llama .jpg, .jpeg, .JPG, .JPEG o .png, siempre lo encuentra.
+  const extensiones = ['jpg', 'jpeg', 'JPG', 'JPEG', 'png', 'PNG', 'webp'];
+  document.querySelectorAll('img[data-foto-base]').forEach(img => {
+    const base = img.getAttribute('data-foto-base');
+    let intento = 0;
+    const probarSiguiente = () => {
+      if (intento >= extensiones.length) {
+        img.style.display = 'none';
+        const contenedor = img.closest('.foto-hero, .foto-tarjeta');
+        if (contenedor) contenedor.classList.add('sin-foto');
+        return;
+      }
+      img.src = `${base}.${extensiones[intento]}`;
+      intento++;
+    };
+    img.addEventListener('error', probarSiguiente);
+    probarSiguiente();
+  });
+
   // ---- Header con fondo al hacer scroll ----
   const encabezado = document.querySelector('.encabezado');
   const alScroll = () => {
