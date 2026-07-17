@@ -97,37 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Tráiler "avanzando" en la carretera al hacer scroll ----
-  const ruedas = document.querySelectorAll('#camionHero .rueda');
-  const lineaCarretera = document.querySelector('.carretera-linea');
-  if (ruedas.length && lineaCarretera) {
-    let ultimoScroll = window.scrollY;
-    let rotacion = 0;
-    let desplazamientoLinea = 0;
-    let ticking = false;
-
-    const actualizarConduccion = () => {
-      const scrollActual = window.scrollY;
-      const delta = scrollActual - ultimoScroll;
-      ultimoScroll = scrollActual;
-
-      rotacion = (rotacion + delta * 1.4) % 360;
-      ruedas.forEach(r => { r.style.transform = `rotate(${rotacion}deg)`; });
-
-      desplazamientoLinea = (desplazamientoLinea + delta * 1.8) % 52;
-      lineaCarretera.style.backgroundPositionY = `${desplazamientoLinea}px`;
-
-      ticking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(actualizarConduccion);
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
   // ---- Suavizar anclas internas considerando header fijo ----
   document.querySelectorAll('a[href^="#"]').forEach(enlace => {
     enlace.addEventListener('click', (e) => {
