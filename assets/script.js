@@ -4,6 +4,28 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---- Parallax de la foto del hero: la imagen "avanza" al hacer scroll ----
+  const heroImg = document.getElementById('heroParallaxImg');
+  const heroSeccion = document.querySelector('.hero');
+  if (heroImg && heroSeccion) {
+    let ticking = false;
+    const actualizarParallax = () => {
+      const alto = heroSeccion.offsetHeight;
+      const progreso = Math.min(Math.max(window.scrollY / alto, 0), 1);
+      const desplazamiento = progreso * 60;
+      const escala = 1 + progreso * 0.12;
+      heroImg.style.transform = `translateY(${desplazamiento}px) scale(${escala})`;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(actualizarParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+    actualizarParallax();
+  }
+
   // ---- Carga de fotos con detección automática de extensión ----
   // Así, si el archivo se llama .jpg, .jpeg, .JPG, .JPEG o .png, siempre lo encuentra.
   const extensiones = ['jpg', 'jpeg', 'JPG', 'JPEG', 'png', 'PNG', 'webp'];
