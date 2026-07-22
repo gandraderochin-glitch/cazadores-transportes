@@ -129,11 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const nombre = formulario.nombre.value.trim();
       const empresa = formulario.empresa.value.trim();
-      const servicio = formulario.servicio.value;
       const mensaje = formulario.mensaje.value.trim();
 
-      const texto = `Hola, soy ${nombre}${empresa ? ' de ' + empresa : ''}. Me interesa el servicio de *${servicio}*. ${mensaje}`;
-      const numeroWhatsapp = '5218119876755';
+      const texto = `Hola, soy ${nombre}${empresa ? ' de ' + empresa : ''}. ${mensaje}`;
+      const numeroWhatsapp = '528119876755';
       const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
       window.open(url, '_blank');
     });
